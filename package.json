@@ -1,0 +1,21 @@
+{
+  "name": "mapbox-gl-playground",
+  "version": "0.0.0",
+  "private": "true",
+  "description": "My Mapbox GL JS Playground",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mapbox-gl": "^3.0.0-beta.1"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  }
+}
