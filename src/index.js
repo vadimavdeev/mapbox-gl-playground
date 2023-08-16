@@ -1,5 +1,7 @@
 import mapboxgl from "mapbox-gl";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import "./styles.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
@@ -21,7 +23,13 @@ const scale = new mapboxgl.ScaleControl({
   unit: "metric",
 });
 
+const geocoder = new MapboxGeocoder({
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl,
+});
+
+map.addControl(geocoder, "top-left");
 map.addControl(navigation, "bottom-right");
-map.addControl(scale, "bottom-right");
+map.addControl(scale, "bottom-left");
 
 window.map = map;
