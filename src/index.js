@@ -1,5 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import CameraControl from "./camera-control";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import "./styles.css";
@@ -28,8 +29,10 @@ const geocoder = new MapboxGeocoder({
   mapboxgl: mapboxgl,
 });
 
+const camera = new CameraControl();
+
 map.addControl(geocoder, "top-left");
-map.addControl(navigation, "bottom-right");
 map.addControl(scale, "bottom-left");
+map.addControl(camera, "bottom-right");
 
 window.map = map;
